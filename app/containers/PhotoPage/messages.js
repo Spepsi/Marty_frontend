@@ -8,6 +8,6 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   header: {
     id: 'app.containers.PhotoPage.header',
-    defaultMessage: 'This is PhotoPage container !',
+    defaultMessage: 'Le pitch de Rita !',
   },
 });

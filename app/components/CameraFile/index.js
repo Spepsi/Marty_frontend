@@ -5,9 +5,9 @@
 */
 
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
 import Dropzone from 'react-dropzone';
-import ActionAndroid from 'material-ui/svg-icons/action/android';
+import ImageCamera from 'material-ui/svg-icons/image/camera';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 
 function CameraFile() {
   return (
@@ -17,16 +17,11 @@ function CameraFile() {
         accept="image/jpeg, image/png"
         onDrop={(acceptedFiles) => this.FileDropped(acceptedFiles)}
       >
-        <RaisedButton
-          labelPosition="before"
-          primary
-          icon={<ActionAndroid />}
-        />
+        <FloatingActionButton ><ImageCamera /></FloatingActionButton>
       </Dropzone>
     </div>
   );
 }
-// <input type="submit" />
 
 CameraFile.propTypes = {
 
