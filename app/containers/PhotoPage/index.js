@@ -11,11 +11,16 @@ import { createStructuredSelector } from 'reselect';
 import makeSelectPhotoPage from './selectors';
 import messages from './messages';
 
+import CameraFile from '../../components/CameraFile';
+
 export class PhotoPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div>
         <FormattedMessage {...messages.header} />
+        <div>
+          <CameraFile />
+        </div>
       </div>
     );
   }

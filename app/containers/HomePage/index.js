@@ -10,8 +10,8 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+// import { FormattedMessage } from 'react-intl';
+// import messages from './messages';
 // import CameraInput from '../../components/CameraInput';
 import CameraFile from '../../components/CameraFile';
 
@@ -23,7 +23,6 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
       <div>
         <CameraFile />
       </div>
-
     );
   }
 }

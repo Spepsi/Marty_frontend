@@ -18,11 +18,11 @@ export default function createRoutes(store) {
 
   return [
     {
-      path: '/',
-      name: 'home',
+      path: '',
+      name: 'photoPage',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          import('containers/HomePage'),
+          import('containers/PhotoPage'),
         ]);
 
         const renderRoute = loadModule(cb);
@@ -87,6 +87,26 @@ export default function createRoutes(store) {
 
         importModules.then(([reducer, sagas, component]) => {
           injectReducer('recoPage', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/',
+      name: 'photoPage',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/PhotoPage/reducer'),
+          import('containers/PhotoPage/sagas'),
+          import('containers/PhotoPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('photoPage', reducer.default);
           injectSagas(sagas.default);
           renderRoute(component);
         });

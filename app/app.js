@@ -16,6 +16,7 @@ import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
 import 'sanitize.css/sanitize.css';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 // Import root app
 import App from 'containers/App';
@@ -65,6 +66,7 @@ const rootRoute = {
 };
 
 const render = (messages) => {
+  injectTapEventPlugin();
   ReactDOM.render(
     <Provider store={store}>
       <LanguageProvider messages={messages}>
