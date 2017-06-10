@@ -6,7 +6,8 @@
 
 import { fromJS } from 'immutable';
 import {
-  DEFAULT_ACTION,
+  UPLOAD_PICTURE,
+  UPLOAD_PICTURE_SUCCESS,
 } from './constants';
 
 const initialState = fromJS({
@@ -15,8 +16,10 @@ const initialState = fromJS({
 
 function photoPageReducer(state = initialState, action) {
   switch (action.type) {
-    case DEFAULT_ACTION:
-      return state;
+    case UPLOAD_PICTURE:
+      return state.set('loading', true);
+    case UPLOAD_PICTURE_SUCCESS:
+      return state.set('loading', false);
     default:
       return state;
   }

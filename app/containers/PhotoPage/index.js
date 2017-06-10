@@ -10,10 +10,11 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 import makeSelectPhotoPage from './selectors';
+const Halogen = require('halogen');
 // import messages from './messages';
 import CameraFile from '../../components/CameraFile';
 import {
-  actUploadIdCard,
+  actUploadPicture,
 } from './actions';
 
 
@@ -36,7 +37,9 @@ export class PhotoPage extends React.PureComponent { // eslint-disable-line reac
     return (
       <div>
         {this.props.PhotoPage.loading &&
-          <div>loading</div>
+          <div style={styles.loader}>
+            <Halogen.PacmanLoader color={'#4DAF7C'} />
+            </div>
         }
 
         {!this.props.PhotoPage.loading &&
@@ -65,7 +68,7 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchToProps(dispatch) {
   return {
-    UploadIdCard: (file) => (dispatch(actUploadIdCard(file))),
+    UploadIdCard: (file) => (dispatch(actUploadPicture(file))),
   };
 }
 const styles = {
@@ -76,11 +79,9 @@ const styles = {
   pitchCard: {
     marginTop: '70px',
   },
-  // backGround: {
-  //   backgroundImage: `url(${Background})`,
-  //   backgroundRepeat: 'no-repeat',
-  //   backgroundSize: 'contains',
-  //   backgroundPosition: 'center',
-  // },
+  loader: {
+    width: '70px',
+    margin: '50% auto',
+  },
 };
 export default connect(mapStateToProps, mapDispatchToProps)(PhotoPage);

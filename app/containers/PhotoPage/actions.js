@@ -7,6 +7,7 @@
 import {
   DEFAULT_ACTION,
   UPLOAD_PICTURE,
+  UPLOAD_PICTURE_SUCCESS,
 } from './constants';
 
 export function defaultAction() {
@@ -15,9 +16,15 @@ export function defaultAction() {
   };
 }
 
-export function actUploadIdCard(payload) {
+export function actUploadPicture(payload) {
   return {
     type: UPLOAD_PICTURE,
     payload,
+  };
+}
+
+export function actUploadPictureSuccess() {
+  return {
+    type: UPLOAD_PICTURE_SUCCESS,
   };
 }
