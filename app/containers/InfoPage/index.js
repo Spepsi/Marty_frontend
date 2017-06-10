@@ -8,7 +8,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
-import makeSelectInfoPage from './selectors';
+import makeSelectPhotoPage from '../PhotoPage/selectors';
 import messages from './messages';
 import InfoImgSummary from '../../components/InfoImgSummary';
 import InfoReco from '../../components/InfoReco';
@@ -17,8 +17,10 @@ export class InfoPage extends React.PureComponent { // eslint-disable-line react
   render() {
     return (
       <div>
-        <InfoImgSummary />
-        <hr/>
+        <InfoImgSummary
+          details={this.props.InfoPage.details}
+        />
+        <hr />
         <InfoReco />
       </div>
     );
@@ -30,7 +32,7 @@ InfoPage.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-  InfoPage: makeSelectInfoPage(),
+  InfoPage: makeSelectPhotoPage(),
 });
 
 function mapDispatchToProps(dispatch) {

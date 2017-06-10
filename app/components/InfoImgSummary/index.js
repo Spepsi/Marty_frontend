@@ -10,19 +10,19 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
-function InfoImgSummary() {
+function InfoImgSummary({ details }) {
   return (
     <div style={styles.container}>
       <div style={styles.imageContainer}>
         <img
           style={styles.image}
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Joconde-XVII-anonyme-Mus%C3%A9e_%C3%89pinal.jpg/225px-Joconde-XVII-anonyme-Mus%C3%A9e_%C3%89pinal.jpg"
+          src={details.imgSrc}
           alt=""
         />
       </div>
       <div style={styles.description}>
         <div>
-          <h1 style={styles.title} className="title">test</h1>
+          <h1 style={styles.title} className="title">{details.title}</h1>
         </div>
         <div>
           <p style={styles.peintre} className="peintre">Black M</p>
