@@ -9,7 +9,6 @@ const selectPhotoPageDomain = () => (state) => state.get('photoPage');
  * Other specific selectors
  */
 
-
 /**
  * Default selector used by PhotoPage
  */

@@ -32,15 +32,24 @@ export class PhotoPage extends React.PureComponent { // eslint-disable-line reac
   }
 
   render() {
+    console.log(this.props.PhotoPage);
     return (
       <div>
-        <Card style={styles.pitchCard}>
-          <CardTitle title="Marty" />
-          <CardText>Le text de Rita ! </CardText>
-        </Card>
-        <div style={styles.photoButton} >
-          <CameraFile FileDropped={(file) => this.FileDropped(file)} />
+        {this.props.PhotoPage.loading &&
+          <div>loading</div>
+        }
+
+        {!this.props.PhotoPage.loading &&
+        <div>
+          <Card style={styles.pitchCard}>
+            <CardTitle title="Marty" />
+            <CardText>Le text de Rita ! </CardText>
+          </Card>
+          <div style={styles.photoButton} >
+            <CameraFile FileDropped={(file) => this.FileDropped(file)} />
+          </div>
         </div>
+      }
       </div>
     );
   }
