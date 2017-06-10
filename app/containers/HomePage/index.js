@@ -12,16 +12,19 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
-import CameraInput from '../../components/CameraInput';
+// import CameraInput from '../../components/CameraInput';
+import CameraFile from '../../components/CameraFile';
+
 // import cameraScripts from '../../lib/cameraInput';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div>
-        <CameraInput />
+        <CameraFile />
       </div>
 
     );
   }
 }
+// <CameraInput />

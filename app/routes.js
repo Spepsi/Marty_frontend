@@ -34,6 +34,66 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: 'info',
+      name: 'infoPage',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/InfoPage/reducer'),
+          import('containers/InfoPage/sagas'),
+          import('containers/InfoPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('infoPage', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: 'history',
+      name: 'historyPage',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/HistoryPage/reducer'),
+          import('containers/HistoryPage/sagas'),
+          import('containers/HistoryPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('historyPage', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: 'reco',
+      name: 'recoPage',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/RecoPage/reducer'),
+          import('containers/RecoPage/sagas'),
+          import('containers/RecoPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('recoPage', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {
