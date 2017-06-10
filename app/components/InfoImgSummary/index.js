@@ -22,11 +22,11 @@ function InfoImgSummary() {
       </div>
       <div style={styles.description}>
         <div>
-          <h1>test</h1>
+          <h1 style={styles.title} className="title">test</h1>
         </div>
         <div>
-          <p className="peintre">Black M</p>
-          <p className="annee">2017</p>
+          <p style={styles.peintre} className="peintre">Black M</p>
+          <p style={styles.annee} className="annee">2017</p>
         </div>
       </div>
     </div>
@@ -50,6 +50,22 @@ const styles = {
   imageContainer: {
     width: '40%',
     padding: 5,
+  },
+  title: {
+    margin: 0,
+    padding: 0,
+    paddingRight: '10px',
+    fontFamily: 'Roboto, sans-serif',
+  },
+  peintre: {
+    margin: 0,
+    padding: 0,
+    fontFamily: 'Roboto, sans-serif',
+  },
+  annee: {
+    margin: 0,
+    padding: 0,
+    fontFamily: 'Roboto, sans-serif',
   },
 };
 export default InfoImgSummary;

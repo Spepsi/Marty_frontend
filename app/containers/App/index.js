@@ -15,7 +15,8 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import MyAwesomeReactComponent from './MyAwesomeReactComponent';
 import IconButton from 'material-ui/IconButton';
-import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle';
+import FlatButton from 'material-ui/FlatButton';
+import ActionPermIdendity from 'material-ui/svg-icons/action/perm-identity';
 import {
   BottomNavigation,
   BottomNavigationItem,
@@ -52,13 +53,13 @@ export default class App extends React.PureComponent {
         <div>
           <AppBar
             iconStyleRight={styles.AppBarRight}
-            iconStyleleft={styles.AppBar}
             titleStyle={styles.AppBar}
-            showMenuIconButton = {false}
+            showMenuIconButton={false}
             style={styles.AppBar}
             iconElementRight={
               <IconButton iconStyle={styles.smallIcon} style={styles.small}>
-                <ActionAccountCircle />
+                <ActionPermIdendity />
+                <span style={styles.profil} className="profil">PROFIL</span>
               </IconButton>
             }
           />
@@ -90,19 +91,24 @@ export default class App extends React.PureComponent {
 }
 
 const styles = {
+  profil: {
+    fontSize: '15px',
+    color: 'rgba(0, 0, 0, 0.87)',
+  },
   footer: {
     position: 'fixed',
     bottom: 0,
   },
   smallIcon: {
-    width: 45,
-    height: 45,
+    width: 30,
+    height: 30,
     color: 'rgba(0, 0, 0, 0.87)',
     fill: 'rgba(0, 0, 0, 0.54)',
   },
   small: {
-    width: 45,
-    height: 45,
+    fontSize: '12px',
+    width: 50,
+    height: 50,
     padding: 0,
     color: 'rgba(0, 0, 0, 0.87)',
     fill: 'rgba(0, 0, 0, 0.54)',
@@ -113,8 +119,8 @@ const styles = {
     marginTop: 0,
   },
   AppBarRight: {
-    height: '45px',
+    height: '50px',
     backgroundColor: 'white',
-    marginTop: 2,
+    marginTop: 0,
   },
 };
