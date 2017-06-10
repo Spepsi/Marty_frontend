@@ -14,10 +14,16 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import MyAwesomeReactComponent from './MyAwesomeReactComponent';
-import FontIcon from 'material-ui/FontIcon';
-import { BottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation';
+import IconButton from 'material-ui/IconButton';
+import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle';
+import {
+  BottomNavigation,
+  BottomNavigationItem,
+} from 'material-ui/BottomNavigation';
 // import Paper from 'material-ui/Paper';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
+
+import AppBar from 'material-ui/AppBar';
 
 import { browserHistory } from 'react-router';
 
@@ -25,7 +31,8 @@ const recentsIcon = <IconLocationOn />;
 const favoritesIcon = <IconLocationOn />;
 const nearbyIcon = <IconLocationOn />;
 
-export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class App extends React.PureComponent {
+  // eslint-disable-line react/prefer-stateless-function
   static propTypes = {
     children: React.PropTypes.node,
   };
@@ -33,23 +40,29 @@ export default class App extends React.PureComponent { // eslint-disable-line re
     selectedIndex: 1,
   };
 
-
   select = (index) => {
-    const routeArray = [
-      '/reco',
-      '',
-      'history',
-    ];
+    const routeArray = ['/reco', '', 'history'];
     this.setState({ selectedIndex: index });
     browserHistory.push(routeArray[index]);
-  }
+  };
 
   render() {
     return (
       <MuiThemeProvider>
         <div>
+          <AppBar
+            style={styles.AppBar}
+            iconElementRight={
+              <IconButton iconStyle={styles.smallIcon} style={styles.small}>
+                <ActionAccountCircle />
+              </IconButton>
+            }
+          />
           {React.Children.toArray(this.props.children)}
-          <BottomNavigation selectedIndex={this.state.selectedIndex} style={styles.footer}>
+          <BottomNavigation
+            selectedIndex={this.state.selectedIndex}
+            style={styles.footer}
+          >
             <BottomNavigationItem
               label="Reco"
               icon={recentsIcon}
@@ -76,5 +89,21 @@ const styles = {
   footer: {
     position: 'fixed',
     bottom: 0,
+  },
+  smallIcon: {
+    width: 50,
+    height: 50,
+    color: 'rgba(0, 0, 0, 0.87)',
+    fill: 'rgba(0, 0, 0, 0.54)',
+  },
+  small: {
+    width: 50,
+    height: 50,
+    padding: 0,
+    color: 'rgba(0, 0, 0, 0.87)',
+    fill: 'rgba(0, 0, 0, 0.54)',
+  },
+  AppBar: {
+    backgroundColor: "white",
   },
 };
