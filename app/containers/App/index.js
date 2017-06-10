@@ -51,6 +51,10 @@ export default class App extends React.PureComponent {
       <MuiThemeProvider>
         <div>
           <AppBar
+            iconStyleRight={styles.AppBarRight}
+            iconStyleleft={styles.AppBar}
+            titleStyle={styles.AppBar}
+            showMenuIconButton = {false}
             style={styles.AppBar}
             iconElementRight={
               <IconButton iconStyle={styles.smallIcon} style={styles.small}>
@@ -91,19 +95,26 @@ const styles = {
     bottom: 0,
   },
   smallIcon: {
-    width: 50,
-    height: 50,
+    width: 45,
+    height: 45,
     color: 'rgba(0, 0, 0, 0.87)',
     fill: 'rgba(0, 0, 0, 0.54)',
   },
   small: {
-    width: 50,
-    height: 50,
+    width: 45,
+    height: 45,
     padding: 0,
     color: 'rgba(0, 0, 0, 0.87)',
     fill: 'rgba(0, 0, 0, 0.54)',
   },
   AppBar: {
-    backgroundColor: "white",
+    height: '50px',
+    backgroundColor: 'white',
+    marginTop: 0,
+  },
+  AppBarRight: {
+    height: '45px',
+    backgroundColor: 'white',
+    marginTop: 2,
   },
 };
