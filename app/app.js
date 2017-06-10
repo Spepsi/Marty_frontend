@@ -65,6 +65,7 @@ const rootRoute = {
   childRoutes: createRoutes(store),
 };
 
+
 const render = (messages) => {
   injectTapEventPlugin();
   ReactDOM.render(

@@ -10,3 +10,4 @@
  */
 
 export const DEFAULT_LOCALE = 'en';
+export const apiUrl = 'http://192.168.43.207:5000';

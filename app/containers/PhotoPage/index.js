@@ -8,13 +8,29 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 // import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
-import makeSelectPhotoPage from './selectors';
-import messages from './messages';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
+import makeSelectPhotoPage from './selectors';
+// import messages from './messages';
 import CameraFile from '../../components/CameraFile';
-import backGround from './assets/vermeer.jpg';
+import {
+  actUploadIdCard,
+} from './actions';
+
 
 export class PhotoPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  constructor() {
+    super();
+    this.state = { files: [] };
+  }
+
+  FileDropped = (acceptedFiles) => {
+    this.props.UploadIdCard(acceptedFiles);
+
+    this.setState({
+      files: this.state.files[0],
+    });
+  }
+
   render() {
     return (
       <div>
@@ -23,7 +39,7 @@ export class PhotoPage extends React.PureComponent { // eslint-disable-line reac
           <CardText>Le text de Rita ! </CardText>
         </Card>
         <div style={styles.photoButton} >
-          <CameraFile />
+          <CameraFile FileDropped={(file) => this.FileDropped(file)} />
         </div>
       </div>
     );
@@ -31,7 +47,7 @@ export class PhotoPage extends React.PureComponent { // eslint-disable-line reac
 }
 
 PhotoPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  UploadIdCard: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -40,7 +56,7 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    UploadIdCard: (file) => (dispatch(actUploadIdCard(file))),
   };
 }
 const styles = {
@@ -51,11 +67,11 @@ const styles = {
   pitchCard: {
     marginTop: '70px',
   },
-  backGround: {
-    backgroundImage: `url(${backGround})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
+  // backGround: {
+  //   backgroundImage: `url(${Background})`,
+  //   backgroundRepeat: 'no-repeat',
+  //   backgroundSize: 'contains',
+  //   backgroundPosition: 'center',
+  // },
 };
 export default connect(mapStateToProps, mapDispatchToProps)(PhotoPage);
