@@ -9,26 +9,42 @@ import React from 'react';
 
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
+import FlatButton from 'material-ui/FlatButton';
 
-function InfoImgSummary({ details }) {
+function InfoImgSummary({ Details, openToggle, openDetails }) {
+  const getButtonString = () => openDetails ? 'refermer' : "Plus d'Infos";
   return (
     <div style={styles.container}>
       <div style={styles.imageContainer}>
         <img
           style={styles.image}
-          src={details.imgSrc}
+          src={Details.src}
           alt=""
         />
       </div>
       <div style={styles.description}>
         <div>
-          <h1 style={styles.title} className="title">{details.title}</h1>
+          <h1 style={styles.title} className="title">{Details.title}</h1>
         </div>
         <div>
-          <p style={styles.peintre} className="peintre">Black M</p>
-          <p style={styles.annee} className="annee">2017</p>
+          <p style={styles.peintre} className="peintre">{Details.author}</p>
+          <p style={styles.annee} className="annee">{Details.date}</p>
         </div>
       </div>
+      <FlatButton label={getButtonString()} onTouchTap={() => openToggle()} />
+      {openDetails &&
+      <div>
+        <p>Artiste : {Details.author} ({Details.borndied})</p>
+        <p>Titre : {Details.title}</p>
+        <p>Date : {Details.date}</p>
+        <p>Technique : {Details.technique}</p>
+        <p>Musée : {Details.location}</p>
+        <p>Type : {Details.form}</p>
+        <p>Genre : {Details.type}</p>
+        <p>Ecole : {Details.school}</p>
+        <p>Période : {Details.timeline}</p>
+      </div>
+    }
     </div>
   );
 }
@@ -36,10 +52,6 @@ function InfoImgSummary({ details }) {
 InfoImgSummary.propTypes = {};
 const styles = {
   container: {
-    display: '-webkit-box',
-    display: '-moz-box',
-    display: '-ms-flexbox',
-    display: '-webkit-flex',
     display: 'flex',
     flexFlow: 'row wrap',
   },
