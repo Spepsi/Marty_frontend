@@ -33,16 +33,19 @@ function InfoReco({ RecoArray }) {
         cellHeight={180}
         style={styles.gridList}
       >
-        {RecoArray.map((tile, key) => (
-          <GridTile
-            key={key}
-            title={tile.title}
-            subtitle={<span>by <b>{tile.author}</b></span>}
-            actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
-          >
-            <img src={tile.src} alt="" />
-          </GridTile>
-      ))}
+        {RecoArray.map((tile, key) => {
+          const jsTile = JSON.parse(tile);
+          return (
+            <GridTile
+              key={key}
+              title={jsTile.title}
+              subtitle={<span>by <b>{jsTile.author}</b></span>}
+              actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+            >
+              <img src={jsTile.src} alt="" />
+            </GridTile>
+          );
+        })}
       </GridList>
     </div>
   );

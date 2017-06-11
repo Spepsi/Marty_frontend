@@ -8,6 +8,7 @@ import {
   DEFAULT_ACTION,
   UPLOAD_PICTURE,
   UPLOAD_PICTURE_SUCCESS,
+  UPLOAD_PICTURE_FAILED,
 } from './constants';
 
 export function defaultAction() {
@@ -23,8 +24,15 @@ export function actUploadPicture(payload) {
   };
 }
 
-export function actUploadPictureSuccess() {
+export function actUploadPictureSuccess(payload) {
   return {
     type: UPLOAD_PICTURE_SUCCESS,
+    payload,
+  };
+}
+
+export function actUploadPictureFailed() {
+  return {
+    type: UPLOAD_PICTURE_FAILED,
   };
 }

@@ -7,6 +7,7 @@ import {
 } from './constants';
 import {
   actUploadPictureSuccess,
+  actUploadPictureFailed,
 } from './actions';
 
 export function* pictureUpload(action) {
@@ -16,12 +17,13 @@ export function* pictureUpload(action) {
   }
   try {
     const response = yield call(() => axios.post(`${apiUrl}/api/hello`, data));
-    console.log(response);
-    yield put(actUploadPictureSuccess());
+    console.log('sagaResp', response);
+    yield put(actUploadPictureSuccess(response.data));
     yield put(push('/info'));
   } catch (e) {
-    yield put(actUploadPictureSuccess());
-    yield put(push('/info'));
+    yield put(actUploadPictureFailed());
+    // yield put(actUploadPictureSuccess());
+    // yield put(push('/info'));
   }
 }
 

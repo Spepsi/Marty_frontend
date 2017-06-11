@@ -8,15 +8,12 @@ import { fromJS } from 'immutable';
 import {
   UPLOAD_PICTURE,
   UPLOAD_PICTURE_SUCCESS,
+  UPLOAD_PICTURE_FAILED,
 } from './constants';
 
 const initialState = fromJS({
   loading: false,
-  details: {
-    title: 'la Joconde',
-    author: 'Leonardo da Vinci',
-    imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Joconde-XVII-anonyme-Mus%C3%A9e_%C3%89pinal.jpg/225px-Joconde-XVII-anonyme-Mus%C3%A9e_%C3%89pinal.jpg',
-  },
+  data: {},
 });
 
 function photoPageReducer(state = initialState, action) {
@@ -24,7 +21,12 @@ function photoPageReducer(state = initialState, action) {
     case UPLOAD_PICTURE:
       return state.set('loading', true);
     case UPLOAD_PICTURE_SUCCESS:
-      return state.set('loading', false);
+      return state
+      .set('data', action.payload)
+      .set('loading', false);
+    case UPLOAD_PICTURE_FAILED:
+      return state
+        .set('loading', false);
     default:
       return state;
   }

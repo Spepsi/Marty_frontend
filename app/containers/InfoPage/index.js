@@ -20,10 +20,11 @@ export class InfoPage extends React.PureComponent { // eslint-disable-line react
   }
 
   render() {
+    console.log('infoPageRender', this.props.InfoPage);
     return (
       <div style={{ marginBottom: '40px' }}>
         <InfoImgSummary
-          Details={this.props.InfoPage.tableau}
+          Details={JSON.parse(this.props.InfoPage.tableau)}
           openToggle={() => {
             this.setState({
               openDetails: !this.state.openDetails,
@@ -32,8 +33,11 @@ export class InfoPage extends React.PureComponent { // eslint-disable-line react
           openDetails={this.state.openDetails}
         />
 
-        <hr />
+        <div>
+          <hr />
 
+        </div>
+        <br />
         <InfoReco RecoArray={this.props.InfoPage.reco} />
       </div>
     );
@@ -45,8 +49,8 @@ InfoPage.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-  // InfoPage: makeSelectPhotoPage(),
-  InfoPage: makeSelectInfoPage(),
+  InfoPage: makeSelectPhotoPage(),
+  // InfoPage: makeSelectInfoPage(),
 });
 
 function mapDispatchToProps(dispatch) {

@@ -21,7 +21,7 @@ const makeSelectInfoPage = () => createSelector(
 );
 const makeSelectPhotoPage = () => createSelector(
   selectPhotoPageDomain(),
-  (substate) => substate.toJS()
+  (substate) => substate.get('data')
 );
 // export default makeSelectInfoPage;
 export {
