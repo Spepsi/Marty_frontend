@@ -14,6 +14,7 @@ const Halogen = require('halogen');
 // import messages from './messages';
 import CameraFile from '../../components/CameraFile';
 import CameraInput from '../../components/CameraInput';
+import CameraCapture from '../../components/CameraCapture';
 import { actUploadPicture } from './actions';
 
 export class PhotoPage extends React.PureComponent {
@@ -42,21 +43,21 @@ export class PhotoPage extends React.PureComponent {
 
         {!this.props.PhotoPage.loading &&
           <div className="mainphoto" style={styles.mainphoto}>
-            {/* <Card style={styles.pitchCard}>
-            <CardTitle title="Marty" />
-            <CardText>Le text de Rita ! </CardText>
-          </Card>*/}
+            {<Card style={styles.pitchCard}>
+              <CardTitle title="Marty" />
+              <CardText>Une web app qui permet aux visiteurs d’un musée d’avoir instantanément toutes les infos concernant une oeuvre d’art et d’obtenir des recommandations d’expos qui pourraient les intéresser.</CardText>
+            </Card>}
             <div style={styles.photoButton} className="photoButton">
               <CameraFile FileDropped={(file) => this.FileDropped(file)} />
-            </div>
-            <div style={styles.cameraInput} className="cameraInput">
-              <CameraInput />
             </div>
           </div>}
       </div>
     );
   }
 }
+// <div style={styles.cameraInput} className="cameraInput">
+//   <CameraInput />
+// </div>
 
 PhotoPage.propTypes = {
   UploadIdCard: PropTypes.func,
@@ -76,10 +77,10 @@ const styles = {
     position: 'relative',
   },
   photoButton: {
-    position: 'absolute',
+    position: 'fixed',
     textAlign: 'center',
-    left: '42%',
-    top: '375px',
+    left: '44%',
+    bottom: '65px',
   },
   pitchCard: {
     marginTop: '70px',
