@@ -11,7 +11,12 @@ import Webcam from 'react-webcam';
 function CameraInput() {
   return (
     <div>
-      <Webcam audio={false} />
+      <Webcam
+        audio={false}
+        screenshotFormat="image/jpeg"
+        width={'100%'}
+        height={450}
+      />
     </div>
   );
 }
