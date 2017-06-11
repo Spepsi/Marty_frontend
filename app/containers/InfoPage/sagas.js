@@ -17,19 +17,17 @@ import {
 } from '../PhotoPage/actions';
 
 export function* pictureUpload(action) {
+  // console.log(action);
   // const data = new FormData();
   // for (let i = 0; i < action.payload.length; i += 1) {
   //   data.append(`file${i}`, action.payload[i]);
   // }
   try {
     const response = yield call(() => axios.get(`${apiUrl}/api/hellourl/${action.id}`));
-    console.log('sagaResp', response);
     yield put(actUploadPictureSuccess(response.data));
-    yield put(push('/info'));
+    // yield put(push('/info'));
   } catch (e) {
     yield put(actUploadPictureFailed());
-    // yield put(actUploadPictureSuccess());
-    // yield put(push('/info'));
   }
 }
 

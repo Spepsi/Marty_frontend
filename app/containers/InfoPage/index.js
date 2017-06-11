@@ -39,7 +39,7 @@ export class InfoPage extends React.PureComponent { // eslint-disable-line react
           <hr />
         </div>
         <br />
-        <InfoReco RecoClicked={(id) => FetchNewReco(id)} RecoArray={this.props.InfoPage.reco} />
+        <InfoReco RecoClicked={(id) => this.props.FetchNewReco(id)} RecoArray={this.props.InfoPage.reco} />
       </div>
     );
   }

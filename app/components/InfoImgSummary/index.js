@@ -31,7 +31,7 @@ function InfoImgSummary({ Details, openToggle, openDetails }) {
           <p style={styles.annee} className="annee">{Details.date}</p>
         </div>
       </div>
-      <FlatButton label={getButtonString()} onTouchTap={() => openToggle()} />
+      <FlatButton label={getButtonString()} onTouchTap={() => openToggle()} /><br />
       {openDetails &&
       <div>
         <p>Artiste : {Details.author} ({Details.borndied})</p>

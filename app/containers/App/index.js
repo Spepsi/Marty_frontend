@@ -17,20 +17,21 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import IconButton from 'material-ui/IconButton';
 import FlatButton from 'material-ui/FlatButton';
 import ActionPermIdendity from 'material-ui/svg-icons/action/perm-identity';
+import Favorite from 'material-ui/svg-icons/action/favorite-border';
 import {
   BottomNavigation,
   BottomNavigationItem,
 } from 'material-ui/BottomNavigation';
 // import Paper from 'material-ui/Paper';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
-
+import ImageCamera from 'material-ui/svg-icons/image/camera';
 import AppBar from 'material-ui/AppBar';
 
 import { browserHistory } from 'react-router';
 
 const recentsIcon = <IconLocationOn />;
-const favoritesIcon = <IconLocationOn />;
-const nearbyIcon = <IconLocationOn />;
+const favoritesIcon = <ImageCamera />;
+const nearbyIcon = <Favorite />;
 
 export default class App extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
@@ -66,6 +67,7 @@ export default class App extends React.PureComponent {
           <div style={{ maxWidth: '98%', margin: 'auto' }}>
             {React.Children.toArray(this.props.children)}
           </div>
+
           <BottomNavigation
             selectedIndex={this.state.selectedIndex}
             style={styles.footer}
