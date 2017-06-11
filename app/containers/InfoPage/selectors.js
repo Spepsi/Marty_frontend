@@ -19,12 +19,14 @@ const makeSelectInfoPage = () => createSelector(
   selectInfoPageDomain(),
   (substate) => substate.toJS()
 );
-// const makeSelectPhotoPage = () => createSelector(
-//   selectPhotoPageDomain(),
-//   (substate) => substate.toJS()
-// );
-export default makeSelectInfoPage;
+const makeSelectPhotoPage = () => createSelector(
+  selectPhotoPageDomain(),
+  (substate) => substate.toJS()
+);
+// export default makeSelectInfoPage;
 export {
-  selectInfoPageDomain,
-  selectPhotoPageDomain,
+  makeSelectPhotoPage,
+  makeSelectInfoPage,
+  // selectInfoPageDomain,
+  // selectPhotoPageDomain,
 };
