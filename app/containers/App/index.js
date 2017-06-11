@@ -63,7 +63,9 @@ export default class App extends React.PureComponent {
               </IconButton>
             }
           />
-          {React.Children.toArray(this.props.children)}
+          <div style={{ maxWidth: '98%', margin: 'auto' }}>
+            {React.Children.toArray(this.props.children)}
+          </div>
           <BottomNavigation
             selectedIndex={this.state.selectedIndex}
             style={styles.footer}
