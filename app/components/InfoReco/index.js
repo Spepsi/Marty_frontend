@@ -25,7 +25,7 @@ const styles = {
   },
 };
 
-function InfoReco({ RecoArray }) {
+function InfoReco({ RecoArray, RecoClicked }) {
   return (
     <div>
       <h3>Recommandations</h3>
@@ -41,6 +41,7 @@ function InfoReco({ RecoArray }) {
               title={jsTile.title}
               subtitle={<span>by <b>{jsTile.author}</b></span>}
               actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+              onTouchTap={() => RecoClicked(jsTile.index)}
             >
               <img src={jsTile.src} alt="" />
             </GridTile>

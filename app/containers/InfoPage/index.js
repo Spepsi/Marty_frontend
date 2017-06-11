@@ -12,6 +12,9 @@ import { makeSelectPhotoPage, makeSelectInfoPage } from './selectors';
 import messages from './messages';
 import InfoImgSummary from '../../components/InfoImgSummary';
 import InfoReco from '../../components/InfoReco';
+import {
+  actFetchNewReco,
+} from './actions';
 
 export class InfoPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   constructor() {
@@ -20,7 +23,6 @@ export class InfoPage extends React.PureComponent { // eslint-disable-line react
   }
 
   render() {
-    console.log('infoPageRender', this.props.InfoPage);
     return (
       <div style={{ marginBottom: '40px' }}>
         <InfoImgSummary
@@ -35,10 +37,9 @@ export class InfoPage extends React.PureComponent { // eslint-disable-line react
 
         <div>
           <hr />
-
         </div>
         <br />
-        <InfoReco RecoArray={this.props.InfoPage.reco} />
+        <InfoReco RecoClicked={(id) => FetchNewReco(id)} RecoArray={this.props.InfoPage.reco} />
       </div>
     );
   }
@@ -55,7 +56,7 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    FetchNewReco: (id) => (dispatch(actFetchNewReco(id))),
   };
 }
 

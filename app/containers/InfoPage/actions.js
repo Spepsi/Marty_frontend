@@ -5,11 +5,12 @@
  */
 
 import {
-  DEFAULT_ACTION,
+  FETCH_NEW_RECO,
 } from './constants';
 
-export function defaultAction() {
+export function actFetchNewReco(id) {
   return {
-    type: DEFAULT_ACTION,
+    type: FETCH_NEW_RECO,
+    id,
   };
 }
