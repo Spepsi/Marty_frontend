@@ -13,6 +13,7 @@ import makeSelectPhotoPage from './selectors';
 const Halogen = require('halogen');
 // import messages from './messages';
 import CameraFile from '../../components/CameraFile';
+import CameraInput from '../../components/CameraInput';
 import {
   actUploadPicture,
 } from './actions';
@@ -49,6 +50,7 @@ export class PhotoPage extends React.PureComponent { // eslint-disable-line reac
             <CardText>Le text de Rita ! </CardText>
           </Card>
           <div style={styles.photoButton} >
+            <CameraInput />
             <CameraFile FileDropped={(file) => this.FileDropped(file)} />
           </div>
         </div>
