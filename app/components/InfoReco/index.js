@@ -11,7 +11,7 @@ import React from 'react';
 function InfoReco() {
   return (
     <div>
-      
+      <h1>Recommandations</h1>
     </div>
   );
 }

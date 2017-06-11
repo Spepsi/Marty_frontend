@@ -24,7 +24,7 @@ function InfoImgSummary({ Details, openToggle, openDetails }) {
       </div>
       <div style={styles.description}>
         <div>
-          <h1 style={styles.title} className="title">{Details.title}</h1>
+          <h2>{Details.title}</h2>
         </div>
         <div>
           <p style={styles.peintre} className="peintre">{Details.author}</p>

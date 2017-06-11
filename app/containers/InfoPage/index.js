@@ -34,7 +34,7 @@ export class InfoPage extends React.PureComponent { // eslint-disable-line react
 
         <hr />
 
-        <InfoReco />
+        <InfoReco RecoArray={this.props.InfoPage.reco} />
       </div>
     );
   }
